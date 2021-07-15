@@ -19,7 +19,7 @@ function App() {
       <Switch>
         <Route path="/login"><Login setToken={setToken}/></Route>
         <Route path="/register"><Register/></Route>
-        <Route path="/"><Login setToken={setToken}/></Route>
+        <Route path="/"><Mediphors/></Route>
       </Switch>
     </BrowserRouter>)
   }
