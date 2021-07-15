@@ -19,7 +19,7 @@ function App() {
       <Switch>
         <Route path="/login"><Login setToken={setToken}/></Route>
         <Route path="/register"><Register/></Route>
-        <Route path="/"><Mediphors/></Route>
+        <Route path="/" loggedIn={false}><Mediphors/></Route>
       </Switch>
     </BrowserRouter>)
   }
@@ -29,7 +29,7 @@ function App() {
         <Navbar className="m-2" type="app"/>
         <Switch>
           <Route path="/form"><MediphorsForm/></Route>
-          <Route path="/"><Mediphors/></Route>
+          <Route path="/" loggedIn={true}><Mediphors/></Route>
         </Switch>
       </BrowserRouter>
   )

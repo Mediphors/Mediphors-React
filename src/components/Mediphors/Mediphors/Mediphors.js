@@ -56,7 +56,7 @@ class Mediphors extends React.Component {
                     <div className="row display-flex no-gutters">
                         <div className="card-group">
                         {this.state.mediphors.map((mediphor, i) => (
-                            <Mediphor mediphor={mediphor} key={i} delete={this.deleteMediphor}/>
+                            <Mediphor mediphor={mediphor} key={i} delete={this.deleteMediphor} loggedIn={this.props.loggedIn}/>
                         ))}
                         </div>
                     </div>
