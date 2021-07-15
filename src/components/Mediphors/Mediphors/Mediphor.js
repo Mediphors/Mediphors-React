@@ -21,7 +21,7 @@ class Mediphor extends React.Component {
             imageURL: this.state.imageURL
           }
           console.log(data)
-          return fetch('http://localhost:8080/mediphors/update', {
+          return fetch('https://mediphors-node.herokuapp.com/mediphors/update', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ class Mediphor extends React.Component {
         let data = {
             imageURL: this.props.mediphor.imageURL
           }
-          return fetch('http://localhost:8080/mediphors/mediphor', {
+          return fetch('https://mediphors-node.herokuapp.com/mediphors/mediphor', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

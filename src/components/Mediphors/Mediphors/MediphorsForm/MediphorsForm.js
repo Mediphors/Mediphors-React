@@ -55,7 +55,7 @@ class MediphorsForm extends React.Component {
       hashtags: this.state.hashtags,
       imageURL: this.state.uploadURL
     }
-    return fetch('http://localhost:8080/mediphors/', {
+    return fetch('https://mediphors-node.herokuapp.com/mediphors/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ class MediphorsForm extends React.Component {
       console.log('Upload clicked')
       // Get the presigned URL
       const instance = axios.create({
-        baseURL: 'http://localhost:8080',
+        baseURL: 'https://mediphors-node.herokuapp.com',
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",

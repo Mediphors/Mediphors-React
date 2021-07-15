@@ -4,7 +4,7 @@ import {Link, Redirect} from 'react-router-dom'
 import './Register.css';
 
 async function registerUser(creds) {
-    return fetch('http://localhost:8080/register/', {
+    return fetch('https://mediphors-node.herokuapp.com/register/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

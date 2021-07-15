@@ -20,7 +20,7 @@ class Mediphors extends React.Component {
 
     async getMediphors() {
         const instance = axios.create({
-            baseURL: 'http://localhost:8080',
+            baseURL: 'https://mediphors-node.herokuapp.com/',
             headers: {
               "Access-Control-Allow-Origin": "*",
               "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
@@ -36,7 +36,7 @@ class Mediphors extends React.Component {
             imageURL: imageURL
           }
           console.log(data)
-          return fetch('http://localhost:8080/mediphors/delete', {
+          return fetch('https://mediphors-node.herokuapp.com/mediphors/delete', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

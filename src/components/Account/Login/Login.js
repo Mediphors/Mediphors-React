@@ -4,7 +4,7 @@ import {Link, Redirect} from 'react-router-dom'
 import './Login.css';
 
 async function loginUser(creds) {
-  return fetch('http://localhost:8080/login', {
+  return fetch('https://mediphors-node.herokuapp.com/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
