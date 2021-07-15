@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {Link, Redirect} from 'react-router-dom'
 import './Login.css';
 
-var url = 'https://mediphors-node.herokuapp.com'
+var url = process.env.REACT_APP_API_URL
+
 async function loginUser(creds) {
   return fetch(url + '/login', {
     method: 'POST',

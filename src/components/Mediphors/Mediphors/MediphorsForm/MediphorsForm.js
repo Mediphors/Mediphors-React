@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import './MediphorsForm.css';
 
-var url = 'https://mediphors-node.herokuapp.com'
+var url = process.env.REACT_APP_API_URL
 
 class MediphorsForm extends React.Component {
 

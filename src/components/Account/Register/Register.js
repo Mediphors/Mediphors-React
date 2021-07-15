@@ -2,7 +2,7 @@ import React from 'react'
 import {Link, Redirect} from 'react-router-dom'
 import './Register.css';
 
-var url = 'https://mediphors-node.herokuapp.com'
+var url = process.env.REACT_APP_API_URL
 
 async function registerUser(creds) {
     return fetch(url + '/register', {
@@ -12,7 +12,18 @@ async function registerUser(creds) {
       },
       body: JSON.stringify(creds)
     }).then(data => data.json())
-    .then(response => console.log('Success: ', JSON.stringify(response)))
+    .then(response => {
+        if (response === 401) {
+            console.log("Wrong Key")
+            alert("Incorrect Registration Key")
+        } else if (response === 409) {
+            console.log("User Exists")
+            alert("Username already exists try another username or try logging in")
+        } else {
+            console.log('Success: ', JSON.stringify(response))
+            this.setState({ redirect: "/login" })
+        }
+    })
     .catch(error => {
         console.error('Error: ', error)
         alert("Incorrect Registration Key")
@@ -42,7 +53,6 @@ class Register extends React.Component {
         let password = this.state.password
         let key = this.state.key
         registerUser({username, password, key})
-        this.setState({ redirect: "/login" })
     }
 
     render() {
@@ -75,9 +85,9 @@ class Register extends React.Component {
                             <div className="form-group">
                                 <div className="input-group">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text"><i class="fas fa-key fa-sm"/></span>
+                                        <span className="input-group-text"><i className="fas fa-key fa-sm"/></span>
                                     </div>
-                                    <input className="form-control" placeholder="Registration Key" type="text" onChange={e => this.setState({password: e.target.value})}/>
+                                    <input className="form-control" placeholder="Registration Key" type="text" onChange={e => this.setState({key: e.target.value})}/>
                                 </div>
                             </div>
                             <div className="form-group">

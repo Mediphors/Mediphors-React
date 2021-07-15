@@ -3,7 +3,7 @@ import axios from 'axios'
 import "./Mediphors.css"
 import Mediphor from './Mediphor'
 
-var url = 'https://mediphors-node.herokuapp.com'
+var url = process.env.REACT_APP_API_URL
 
 class Mediphors extends React.Component {
     constructor(props) {

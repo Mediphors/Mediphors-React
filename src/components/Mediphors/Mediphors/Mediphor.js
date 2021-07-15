@@ -1,6 +1,6 @@
 import React from 'react'
 
-var url = 'https://mediphors-node.herokuapp.com'
+var url = process.env.REACT_APP_API_URL
 
 class Mediphor extends React.Component {
     constructor(props) {
