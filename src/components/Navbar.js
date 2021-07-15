@@ -5,6 +5,7 @@ class Navbar extends React.Component {
         if (this.props.type === "login") {
             return (
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                  <img src="Mediphors-React/public/mediphors-logo.png" width="30" height="30" class="d-inline-block align-top" alt=""></img>
                   <a className="navbar-brand" href="/">Mediphors</a>
                   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -24,7 +25,10 @@ class Navbar extends React.Component {
         } else if (this.props.type === "app") {
             return (
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                  <a className="navbar-brand" href="/">Mediphors</a>
+                  <a className="navbar-brand" href="/">
+                    <img src={process.env.PUBLIC_URL + '/mediphors-logo.png'} width="30" height="30" class="d-inline-block align-top " alt=""/>
+                    Mediphors
+                  </a>
                   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                   </button>

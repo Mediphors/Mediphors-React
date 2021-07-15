@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import {Link, Redirect} from 'react-router-dom'
 import './Login.css';
 
+var url = 'https://mediphors-node.herokuapp.com'
 async function loginUser(creds) {
-  return fetch('https://mediphors-node.herokuapp.com/login', {
+  return fetch(url + '/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

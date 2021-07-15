@@ -1,5 +1,7 @@
 import React from 'react'
 
+var url = 'https://mediphors-node.herokuapp.com'
+
 class Mediphor extends React.Component {
     constructor(props) {
         super(props);
@@ -21,7 +23,7 @@ class Mediphor extends React.Component {
             imageURL: this.state.imageURL
           }
           console.log(data)
-          return fetch('https://mediphors-node.herokuapp.com/mediphors/update', {
+          return fetch(url + '/mediphors/update', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -39,7 +41,7 @@ class Mediphor extends React.Component {
         let data = {
             imageURL: this.props.mediphor.imageURL
           }
-          return fetch('https://mediphors-node.herokuapp.com/mediphors/mediphor', {
+          return fetch(url + '/mediphors/mediphor', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -51,7 +53,7 @@ class Mediphor extends React.Component {
     }
 
     delete = (imageURL) => {
-        if (window.confirm("Do you want to delete this mediphor?")) {
+        if (window.confirm("Are you sure you want to delete this mediphor?")) {
             console.log(imageURL)
             this.props.delete(imageURL)
         }

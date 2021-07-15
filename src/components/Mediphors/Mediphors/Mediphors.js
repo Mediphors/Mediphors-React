@@ -3,6 +3,8 @@ import axios from 'axios'
 import "./Mediphors.css"
 import Mediphor from './Mediphor'
 
+var url = 'https://mediphors-node.herokuapp.com'
+
 class Mediphors extends React.Component {
     constructor(props) {
         super(props);
@@ -20,7 +22,7 @@ class Mediphors extends React.Component {
 
     async getMediphors() {
         const instance = axios.create({
-            baseURL: 'https://mediphors-node.herokuapp.com/',
+            baseURL: url,
             headers: {
               "Access-Control-Allow-Origin": "*",
               "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
@@ -36,7 +38,7 @@ class Mediphors extends React.Component {
             imageURL: imageURL
           }
           console.log(data)
-          return fetch('https://mediphors-node.herokuapp.com/mediphors/delete', {
+          return fetch(url + '/mediphors/delete', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

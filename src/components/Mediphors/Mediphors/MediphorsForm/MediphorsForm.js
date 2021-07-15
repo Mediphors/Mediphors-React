@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios';
 import './MediphorsForm.css';
 
+var url = 'https://mediphors-node.herokuapp.com'
+
 class MediphorsForm extends React.Component {
 
   state = {
@@ -55,7 +57,7 @@ class MediphorsForm extends React.Component {
       hashtags: this.state.hashtags,
       imageURL: this.state.uploadURL
     }
-    return fetch('https://mediphors-node.herokuapp.com/mediphors/', {
+    return fetch(url + '/mediphors', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -70,7 +72,7 @@ class MediphorsForm extends React.Component {
       console.log('Upload clicked')
       // Get the presigned URL
       const instance = axios.create({
-        baseURL: 'https://mediphors-node.herokuapp.com',
+        baseURL: url,
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
