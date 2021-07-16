@@ -8,12 +8,14 @@ class Mediphor extends React.Component {
         super(props);
         this.updateMediphor = this.updateMediphor.bind(this)
         this.getMediphor = this.getMediphor.bind(this)
+        console.log(props)
     }
 
     state = {
         description: this.props.mediphor.description,
         hashtags: this.props.mediphor.hashtags,
         imageURL: this.props.mediphor.imageURL,
+        language: ""
     }
 
     async updateMediphor() {
@@ -62,6 +64,7 @@ class Mediphor extends React.Component {
 
     render() {
         if (this.props.loggedIn) {
+            console.log(this.props.loggedIn)
             return (
                 <div className="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mt-2 mb-2 p-2" >
                     <div className="card bg-light">
@@ -76,7 +79,7 @@ class Mediphor extends React.Component {
                                 <div className="col-2">
                                     <a href="#editModal" data-target={"#editModal"+this.props.mediphor._id} data-toggle="modal" className><i className="fas fa-edit p-2"></i></a>
                                     <div className="modal fade" id={"editModal"+this.props.mediphor._id} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div className="modal-dialog" role="document">
+                                        <div className="modal-dialog modal-lg" role="document">
                                             <div className="modal-content">
                                             <div className="modal-header">
                                                 <h5 className="modal-title" id="exampleModalLabel">Edit Mediphor</h5>
@@ -87,12 +90,19 @@ class Mediphor extends React.Component {
                                             <div className="modal-body">
                                                 <form className="form-group form-group-lg">
                                                     <div className="row">
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <button class="dropdown-item" onClick={this.setState({language: "es"})}>Spanish</button>
+                                                            <button class="dropdown-item" onClick={this.setState({language: "es"})}>French</button>
+                                                            <button class="dropdown-item" onClick={this.setState({language: "es"})}>German</button>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row">
                                                         <label className="col-3 col-form-label">Hashtags</label>
-                                                        <input className="col-8 form-control" type="text" name="name" value={this.state.hashtags} onChange={e => this.setState({hashtags: e.target.value})}/>
+                                                        <textarea className="col-8 form-control" rows="2" name="name" value={this.state.hashtags} onChange={e => this.setState({hashtags: e.target.value})}/>
                                                     </div>
                                                     <div className="row">
                                                         <label className="col-3 col-form-label">Description</label>
-                                                        <input className="col-8 form-control" type="text" name="name" value={this.state.description} onChange={e => this.setState({description: e.target.value})}/>
+                                                        <textarea className="col-8 form-control" rows="4" name="name" value={this.state.description} onChange={e => this.setState({description: e.target.value})}/>
                                                     </div>
                                                 </form>
                                             </div>
@@ -111,6 +121,7 @@ class Mediphor extends React.Component {
                     </div>
                 </div>
         )} else {
+            console.log(this.props.loggedIn)
             return (
                 <div className="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mt-2 mb-2 p-2">
                         <div className="card bg-light">

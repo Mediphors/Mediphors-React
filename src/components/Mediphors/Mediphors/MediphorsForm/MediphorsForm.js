@@ -51,7 +51,8 @@ class MediphorsForm extends React.Component {
     reader.readAsDataURL(file)
   }
 
-  uploadData (e, url) {
+  uploadData (e) {
+    console.log(url)
     let data = {
       description: this.state.description,
       hashtags: this.state.hashtags,
