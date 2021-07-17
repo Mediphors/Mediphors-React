@@ -20,6 +20,10 @@ class Mediphors extends React.Component {
         this.getMediphors()
     }
 
+    componentWillUnmount() {
+
+    }
+
     async getMediphors() {
         const instance = axios.create({
             baseURL: url,

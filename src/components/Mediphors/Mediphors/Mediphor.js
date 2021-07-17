@@ -68,9 +68,9 @@ class Mediphor extends React.Component {
     }
 
     render() {
-        if (this.props.loggedIn) {
+        if (this.props.loggedIn === "true") {
             return (
-                <div className="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mt-2 mb-2 p-2" >
+                <div className="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mt-2 mb-2 p-2">
                     <div className="card bg-light">
                         <img src={this.props.mediphor.imageURL} className="card-img-top" alt="..."/>
                         <div className="card-body">
@@ -81,8 +81,8 @@ class Mediphor extends React.Component {
                                     ))}
                                 </div>
                                 <div className="col-2">
-                                    <a href="#editModal" data-target={"#editModal"+this.props.mediphor._id} data-toggle="modal"><i className="fas fa-edit p-2"></i></a>
-                                    <div className="modal fade" id={"editModal"+this.props.mediphor._id} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <a href="#editModal" data-target={"#editModal"+this.props.mediphor.imageURL} data-toggle="modal"><i className="fas fa-edit p-2"></i></a>
+                                    <div className="modal fade" id={"editModal"+this.props.mediphor.imageURL} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div className="modal-dialog modal-lg" role="document">
                                             <div className="modal-content">
                                             <div className="modal-header">
@@ -101,10 +101,6 @@ class Mediphor extends React.Component {
                                                             <option value="fr">French</option>
                                                             <option value="de">German</option>
                                                         </select>
-                                                    </div>
-                                                    <div className="row p-2">
-                                                        <label className="col-3 col-form-label">Hashtags</label>
-                                                        <textarea className="col-8 form-control" rows="2" name="name" value={this.state.hashtags} onChange={e => this.setState({hashtags: e.target.value})}/>
                                                     </div>
                                                     <div className="row p-2">
                                                         <label className="col-3 col-form-label">Description</label>
@@ -134,8 +130,8 @@ class Mediphor extends React.Component {
                             <div className="card-body">
                                 <div className="row no-gutters">
                                     <div className="card-subtitle text-muted small">
-                                        {this.state.hashtags.map((mediphor, i) => (
-                                            <div className="d-inline">{mediphor} </div>
+                                        {this.state.hashtags.map((hashtag, i) => (
+                                            <div className="d-inline">{hashtag} </div>
                                         ))}
                                     </div>
                                 <p>{this.state.description}</p>

@@ -15,7 +15,7 @@ function App() {
   if (!token) {
     return (
     <BrowserRouter>
-      <Navbar type="login"/>
+      <Navbar className="m-2" type="login"/>
       <Switch>
         <Route path="/login"><Login setToken={setToken}/></Route>
         <Route path="/register"><Register/></Route>

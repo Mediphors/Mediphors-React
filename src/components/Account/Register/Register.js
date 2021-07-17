@@ -4,32 +4,6 @@ import './Register.css';
 
 var url = process.env.REACT_APP_API_URL
 
-async function registerUser(creds) {
-    return fetch(url + '/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(creds)
-    }).then(data => data.json())
-    .then(response => {
-        if (response === 401) {
-            console.log("Wrong Key")
-            alert("Incorrect Registration Key")
-        } else if (response === 409) {
-            console.log("User Exists")
-            alert("Username already exists try another username or try logging in")
-        } else {
-            console.log('Success: ', JSON.stringify(response))
-            this.setState({ redirect: "/login" })
-        }
-    })
-    .catch(error => {
-        console.error('Error: ', error)
-        alert("Incorrect Registration Key")
-    });
-  }
-
 class Register extends React.Component {
     state = {
         username: null,
@@ -44,15 +18,41 @@ class Register extends React.Component {
           password: null,
           key: null,
           redirect: null
-        };
+        }
+        this.registerUser = this.registerUser.bind(this)
     }
+
+    async registerUser(creds) {
+        return fetch(url + '/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(creds)
+        }).then(data => data.json())
+        .then(response => {
+            if (response === 401) {
+                console.log("Wrong Key")
+                alert("Incorrect Registration Key")
+            } else if (response === 409) {
+                console.log("User Exists")
+                alert("Username already exists try another username or try logging in")
+            } else if (response === 200) {
+                this.setState({redirect: "/login" })
+            }
+        })
+        .catch(error => {
+            console.error('Error: ', error)
+            alert("Incorrect Registration Key")
+        });
+      }
 
     async handleSubmit(e) {
         e.preventDefault()
         let username = this.state.username
         let password = this.state.password
         let key = this.state.key
-        registerUser({username, password, key})
+        this.registerUser({username, password, key})
     }
 
     render() {

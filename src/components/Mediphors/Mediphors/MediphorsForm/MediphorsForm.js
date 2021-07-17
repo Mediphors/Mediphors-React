@@ -103,43 +103,45 @@ class MediphorsForm extends React.Component {
     }
     render() {
       return (
-        <div className="container">
-            <div className="card">
-                <div className="card-body">
-                    <h4 className="card-title text-center mb-4 mt-1">Create a Mediphor</h4>
-                    <hr/>
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="form-group">
-                            <div className="input-group">
-                                <div className="input-group-prepend">
-                                    
-                                    <span className="input-group-text"><i className="fas fa-bars fa-lg"></i></span>
-                                </div>
-                                <input className="form-control" placeholder="Description" type="text" name="description" onChange={e => this.setState({description: e.target.value})}/>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <div className="input-group">
-                                <div className="input-group-prepend">
-                                    <span className="input-group-text"> <i className="fa fa-tags fa-md"></i></span>
-                                </div>
-                                <input className="form-control" placeholder="Hashtags" type="text" name="hashtags" onChange={e => this.setState({hashtags: e.target.value})}/>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <div className="input-group">
-                                <div className="input-group-prepend">
-                                    <span className="input-group-text"> <i className="fa fa-image fa-md"></i></span>
-                                </div>                                
-                                <input className="form-control" type="file" id="image" name="file" onChange={this.handleFileChange} ref={this.fileInput}/>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <button type="submit" className="btn btn-primary btn-block" onClick={this.submit}>Submit</button>
-                        </div>
-                    </form>
-                </div>
+        <div className="container-fluid mx-auto pt-3">
+          <div className="row display-flex no-gutters">
+            <div className="card col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto">
+              <div className="card-body">
+                  <h4 className="card-title text-center mb-4 mt-1">Create a Mediphor</h4>
+                  <hr/>
+                  <form onSubmit={this.handleSubmit}>
+                      <div className="form-group">
+                          <div className="input-group">
+                              <div className="input-group-prepend">
+                                  
+                                  <span className="input-group-text"><i className="fas fa-bars fa-lg"></i></span>
+                              </div>
+                              <input className="form-control" placeholder="Description" type="text" name="description" onChange={e => this.setState({description: e.target.value})}/>
+                          </div>
+                      </div>
+                      <div className="form-group">
+                          <div className="input-group">
+                              <div className="input-group-prepend">
+                                  <span className="input-group-text"> <i className="fa fa-tags fa-md"></i></span>
+                              </div>
+                              <input className="form-control" placeholder="Hashtags" type="text" name="hashtags" onChange={e => this.setState({hashtags: e.target.value})}/>
+                          </div>
+                      </div>
+                      <div className="form-group">
+                          <div className="input-group">
+                              <div className="input-group-prepend">
+                                  <span className="input-group-text"> <i className="fa fa-image fa-md"></i></span>
+                              </div>                                
+                              <input className="form-control" type="file" id="image" name="file" onChange={this.handleFileChange} ref={this.fileInput}/>
+                          </div>
+                      </div>
+                      <div className="form-group">
+                          <button type="submit" className="btn btn-primary btn-block" onClick={this.submit}>Submit</button>
+                      </div>
+                  </form>
+              </div>
             </div>
+          </div>
         </div>
       )
     }
