@@ -24,10 +24,11 @@ class Mediphor extends React.Component {
             id: this.props.mediphor._id,
             description: this.state.description,
             hashtags: this.state.hashtags,
-            imageURL: this.state.imageURL
+            imageURL: this.state.imageURL,
+            language: this.state.language,
           }
-          console.log(data)
-          return fetch(url + '/mediphors/update', {
+          let urlParm = '/mediphors/update'
+          return fetch(url + urlParm, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
