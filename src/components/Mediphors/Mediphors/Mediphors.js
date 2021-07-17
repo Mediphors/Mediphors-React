@@ -45,7 +45,10 @@ class Mediphors extends React.Component {
             },
             body: JSON.stringify(data)
           }).then(data => data.json())
-          .then(response => {console.log('Success:', JSON.stringify(response)); this.getMediphors()})
+          .then(response => {
+              //console.log('Success:', JSON.stringify(response))
+              this.getMediphors()
+            })
           .catch(error => console.error('Error:', error));
     }
 
