@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import "./Mediphors.css"
+import "./MediphorList.css"
 import Mediphor from './Mediphor'
 
 var url = process.env.REACT_APP_API_URL
