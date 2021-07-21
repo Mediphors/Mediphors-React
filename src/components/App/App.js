@@ -1,8 +1,8 @@
 import './App.css';
 import Login from '../Account/Login/Login';
 import Register from '../Account/Register/Register';
-import MediphorsForm from '../Mediphors/Mediphors/MediphorsForm/MediphorsForm';
-import Mediphors from '../Mediphors/Mediphors/Mediphors';
+import MediphorsForm from '../Mediphors/MediphorsForm/MediphorsForm';
+import Mediphors from '../Mediphors/List/MediphorList';
 import Navbar from '../Navbar'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import React from 'react'
