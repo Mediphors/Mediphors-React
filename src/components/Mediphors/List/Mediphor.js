@@ -147,7 +147,7 @@ class Mediphor extends React.Component {
                 </div>
         )} else {
             return (
-                <div className="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mt-2 mb-2 p-2">
+                <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mt-2 mb-2 p-2">
                     <Link to={{
                         pathname: `/mediphor/${this.props.mediphor.imageURL.split('/').pop().split('.')[0]}`,
                         state: {
@@ -159,7 +159,15 @@ class Mediphor extends React.Component {
                         }
                     }}>
                         <div className="card bg-light">
-                            <img src={this.props.mediphor.imageURL} className="card-img-top" alt="..."/>
+                            <IKContext urlEndpoint="https://ik.imagekit.io/mediphors/">
+                                <IKImage
+                                    path={this.props.mediphor.imageURL.split('/').pop()}
+                                    transformation={[{
+                                    "height": "500",
+                                    "width": "500"
+                                    }]}
+                                />
+                            </IKContext>                            
                             <div className="card-body">
                                 <div className="row no-gutters">
                                     <div className="card-subtitle text-muted small line-clamp-1">
