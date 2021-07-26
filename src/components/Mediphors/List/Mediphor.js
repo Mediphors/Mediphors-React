@@ -73,7 +73,7 @@ class Mediphor extends React.Component {
     render() {
         if (this.props.loggedIn === "true") {
             return (
-                <div className="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mt-2 mb-2 p-2">
+                <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mt-2 mb-2 p-2">
                     <div className="card bg-light h-100">
                         <IKContext urlEndpoint="https://ik.imagekit.io/mediphors/">
                             <IKImage

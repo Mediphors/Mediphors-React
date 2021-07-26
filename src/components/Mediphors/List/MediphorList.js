@@ -5,7 +5,7 @@ import Mediphor from './Mediphor'
 
 var url = process.env.REACT_APP_API_URL
 
-class Mediphors extends React.Component {
+class MediphorList extends React.Component {
     constructor(props) {
         super(props);
         this.getMediphors = this.getMediphors.bind(this)
@@ -20,18 +20,9 @@ class Mediphors extends React.Component {
         this.getMediphors()
     }
 
-    componentWillUnmount() {
-
-    }
-
     async getMediphors() {
         const instance = axios.create({
             baseURL: url,
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
-              "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-            }
           });
           let response = await instance.get('/mediphors')
           this.setState({mediphors: response.data})
@@ -75,4 +66,4 @@ class Mediphors extends React.Component {
     }
 }
 
-export default Mediphors
+export default MediphorList

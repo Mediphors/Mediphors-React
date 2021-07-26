@@ -2,7 +2,7 @@ import './App.css';
 import Login from '../Account/Login/Login';
 import Register from '../Account/Register/Register';
 import MediphorsForm from '../Mediphors/MediphorsForm/MediphorsForm';
-import Mediphors from '../Mediphors/List/MediphorList';
+import MediphorList from '../Mediphors/List/MediphorList';
 import Navbar from '../Navbar'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import React from 'react'
@@ -19,7 +19,7 @@ function App() {
       <Switch>
         <Route path="/login"><Login setToken={setToken}/></Route>
         <Route path="/register"><Register/></Route>
-        <Route path="/"><Mediphors loggedIn='false'/></Route>
+        <Route path="/"><MediphorList loggedIn='false'/></Route>
       </Switch>
     </BrowserRouter>)
   }
@@ -29,7 +29,7 @@ function App() {
         <Navbar className="m-2" type="app"/>
         <Switch>
           <Route path="/form"><MediphorsForm/></Route>
-          <Route path="/"><Mediphors loggedIn='true'/></Route>
+          <Route path="/"><MediphorList loggedIn='true'/></Route>
         </Switch>
       </BrowserRouter>
   )
