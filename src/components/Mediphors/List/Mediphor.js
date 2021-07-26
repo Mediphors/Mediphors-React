@@ -86,7 +86,7 @@ class Mediphor extends React.Component {
                         </IKContext>
                         <div className="card-body">
                             <div className="row no-gutters">
-                                <div className="card-subtitle text-muted small col-10">
+                                <div className="card-subtitle text-muted small col-10 line-clamp-1">
                                     {this.state.hashtags.map((hashtag, i) => (
                                         <div className="d-inline" key={i}>{hashtag} </div>
                                     ))}
@@ -129,7 +129,7 @@ class Mediphor extends React.Component {
                                     <a type='button' href='/' onClick={() => this.delete(this.state.imageURL)}><i className="fas fa-trash"></i></a>
                                 </div>
                             </div>
-                            <p className="card-text mx-auto line-clamp">{this.state.description}</p>
+                            <p className="card-text mx-auto line-clamp-3">{this.state.description}</p>
                         </div>
                     </div>
                 </div>
@@ -140,12 +140,12 @@ class Mediphor extends React.Component {
                             <img src={this.props.mediphor.imageURL} className="card-img-top" alt="..."/>
                             <div className="card-body">
                                 <div className="row no-gutters">
-                                    <div className="card-subtitle text-muted small">
+                                    <div className="card-subtitle text-muted small line-clamp-1">
                                         {this.state.hashtags.map((hashtag, i) => (
                                             <div className="d-inline">{hashtag} </div>
                                         ))}
                                     </div>
-                                <p>{this.state.description}</p>
+                                <p className="card-text mx-auto line-clamp-3">{this.state.description}</p>
                             </div>
                         </div>
                     </div>
