@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useLocation } from "react-router-dom";
 import { IKImage, IKContext } from 'imagekitio-react'
 import './Mediphor.css';
@@ -27,7 +27,7 @@ async function getMediphor() {
 }
 
 function changeLanguage(e) {
-    if (e.target.value != "en")
+    if (e.target.value !== "en")
         language= e.target.value
 }
 
