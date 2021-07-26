@@ -1,6 +1,7 @@
 import React from 'react'
 import { IKImage, IKContext } from 'imagekitio-react'
 import './Mediphor.css';
+import { Link } from 'react-router-dom';
 
 var url = process.env.REACT_APP_API_URL
 
@@ -73,7 +74,17 @@ class Mediphor extends React.Component {
     render() {
         if (this.props.loggedIn === "true") {
             return (
-                <div className="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mt-2 mb-2 p-2">
+                <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mt-2 mb-2 p-2">
+                    <Link to={{
+                        pathname: `/mediphor/${this.props.mediphor.imageURL.split('/').pop().split('.')[0]}`,
+                        state: {
+                            loc_description: this.state.description,
+                            loc_hashtags: this.state.hashtags,
+                            loc_imageURL: this.state.imageURL,
+                            loc_language: "", 
+                            loc_id: this.props.mediphor._id
+                        }
+                    }}>
                     <div className="card bg-light h-100">
                         <IKContext urlEndpoint="https://ik.imagekit.io/mediphors/">
                             <IKImage
@@ -86,7 +97,7 @@ class Mediphor extends React.Component {
                         </IKContext>
                         <div className="card-body">
                             <div className="row no-gutters">
-                                <div className="card-subtitle text-muted small col-10">
+                                <div className="card-subtitle text-muted small col-10 line-clamp-1">
                                     {this.state.hashtags.map((hashtag, i) => (
                                         <div className="d-inline" key={i}>{hashtag} </div>
                                     ))}
@@ -129,26 +140,38 @@ class Mediphor extends React.Component {
                                     <a type='button' href='/' onClick={() => this.delete(this.state.imageURL)}><i className="fas fa-trash"></i></a>
                                 </div>
                             </div>
-                            <p className="card-text mx-auto line-clamp">{this.state.description}</p>
+                            <p className="card-text mx-auto line-clamp-3">{this.state.description}</p>
                         </div>
                     </div>
+                    </Link>
                 </div>
         )} else {
             return (
                 <div className="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mt-2 mb-2 p-2">
+                    <Link to={{
+                        pathname: `/mediphor/${this.props.mediphor.imageURL.split('/').pop().split('.')[0]}`,
+                        state: {
+                            loc_description: this.state.description,
+                            loc_hashtags: this.state.hashtags,
+                            loc_imageURL: this.state.imageURL,
+                            loc_language: "",
+                            loc_id: this.props.mediphor._id
+                        }
+                    }}>
                         <div className="card bg-light">
                             <img src={this.props.mediphor.imageURL} className="card-img-top" alt="..."/>
                             <div className="card-body">
                                 <div className="row no-gutters">
-                                    <div className="card-subtitle text-muted small">
+                                    <div className="card-subtitle text-muted small line-clamp-1">
                                         {this.state.hashtags.map((hashtag, i) => (
                                             <div className="d-inline">{hashtag} </div>
                                         ))}
                                     </div>
-                                <p>{this.state.description}</p>
+                                <p className="card-text mx-auto line-clamp-3">{this.state.description}</p>
                             </div>
                         </div>
                     </div>
+                    </Link>
                 </div>
         )}
     }
